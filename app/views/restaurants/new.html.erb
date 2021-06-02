@@ -1,0 +1,12 @@
+<div class="container col-6">
+  <strong><h2><%= link_to '<', restaurants_path, class: "btn btn-outline-secondary" %></h2></strong>
+    <br>
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+    <%= f.submit %>
+  <% end %>
+</div>
+

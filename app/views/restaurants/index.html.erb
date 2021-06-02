@@ -1,0 +1,10 @@
+<h1>Restaurants : </h1>
+<div>
+  <% @restaurants.each do |restaurant| %>
+    <p>
+      <strong><%= restaurant.name %></strong>
+      <%= link_to 'Details', restaurant_path(restaurant)  %>
+    </p>
+  <% end %>
+  <h5><%= link_to '+Add new', new_restaurant_path, class: 'btn btn-outline-secondary' %></h5>
+</div>
