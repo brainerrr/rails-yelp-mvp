@@ -20,7 +20,7 @@
       <span class="fa fa-star <%= "checked" if i + 1 <= @restaurant.average_rating.to_i  %>"></span>
     <% end %>
 
-    <p><%= @restaurant.average_rating %> average based on <%= @restaurant.reviews.count %> reviews.</p>
+    <p><%= (@restaurant.average_rating).round(2) %> average based on <%= @restaurant.reviews.count %> reviews.</p>
     <hr style="border:3px solid #f1f1f1">
 
     <div class="row">
@@ -29,7 +29,7 @@
       </div>
       <div class="middle">
         <div class="bar-container">
-          <div class="bar-5" style="width: <%= (@restaurant.reviews.where(rating: 5).count.to_f / @restaurant.reviews.count) * 100 %>%"></div>
+          <div class="bar-5" style="width: <%= @restaurant.count_rating(5) %>%"></div>
         </div>
       </div>
       <div class="side right">
@@ -40,7 +40,7 @@
       </div>
       <div class="middle">
         <div class="bar-container">
-          <div class="bar-4" style="width: <%= (@restaurant.reviews.where(rating: 4).count.to_f / @restaurant.reviews.count) * 100 %>%"></div>
+          <div class="bar-4" style="width: <%= @restaurant.count_rating(4) %>%"></div>
         </div>
       </div>
       <div class="side right">
@@ -51,7 +51,7 @@
       </div>
       <div class="middle">
         <div class="bar-container">
-          <div class="bar-3" style="width: <%= (@restaurant.reviews.where(rating: 3).count.to_f / @restaurant.reviews.count) * 100 %>%"></div>
+          <div class="bar-3" style="width: <%= @restaurant.count_rating(3) %>%"></div>
         </div>
       </div>
       <div class="side right">
@@ -62,7 +62,7 @@
       </div>
       <div class="middle">
         <div class="bar-container">
-          <div class="bar-2" style="width: <%= (@restaurant.reviews.where(rating: 3).count.to_f / @restaurant.reviews.count) * 100 %>%"></div>
+          <div class="bar-2" style="width: <%= @restaurant.count_rating(2) %>%"></div>
         </div>
       </div>
       <div class="side right">
@@ -73,7 +73,7 @@
       </div>
       <div class="middle">
         <div class="bar-container">
-          <div class="bar-1" style="width: <%= (@restaurant.reviews.where(rating: 3).count.to_f / @restaurant.reviews.count) * 100 %>%"></div>
+          <div class="bar-1" style="width: <%= @restaurant.count_rating(1) %>%"></div>
         </div>
       </div>
       <div class="side right">

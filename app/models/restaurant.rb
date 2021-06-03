@@ -9,4 +9,7 @@ class Restaurant < ApplicationRecord
     reviews.sum(:rating) / reviews.count.to_f
   end
 
+  def count_rating(rating)
+    (reviews.where(rating: rating).count.to_f / reviews.count) * 100
+  end
 end
